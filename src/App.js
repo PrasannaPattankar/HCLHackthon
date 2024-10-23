@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Login from './components/Login';
 import PatientDashboard from './components/PatientDashboard';
@@ -9,9 +9,11 @@ function App() {
   return (
     <Router>
       <Header />
-      <Route path="/" exact component={PublicHealthInfo} />
-      <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={PatientDashboard} />
+      <Routes>
+        <Route path="/" element={<PublicHealthInfo />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<PatientDashboard />} />
+      </Routes>
     </Router>
   );
 }
